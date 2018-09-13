@@ -35,7 +35,7 @@ class GPGRestoreWindow(Gtk.Window):
         Gtk.Window.__init__(self)
         self.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
         self.set_size_request(400, 200)
-        self.set_title(_("GPG paraphrase"))
+        self.set_title(_("GPG password"))
         self.resize(400, 200)
         self._filename = filename
         self._build_widgets()
@@ -43,7 +43,7 @@ class GPGRestoreWindow(Gtk.Window):
     def _build_widgets(self):
         header_bar = Gtk.HeaderBar()
         header_bar.set_show_close_button(True)
-        header_bar.set_title(_("GPG paraphrase"))
+        header_bar.set_title(_("GPG password"))
         apply_btn = Gtk.Button()
         apply_btn.set_label(_("Import"))
         apply_btn.get_style_context().add_class("suggested-action")
@@ -52,7 +52,7 @@ class GPGRestoreWindow(Gtk.Window):
         self.set_titlebar(header_bar)
 
         container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.paraphrase_widget = SettingsBoxWithEntry(_("Paraphrase"), True)
+        self.paraphrase_widget = SettingsBoxWithEntry(_("Password"), True)
         container.pack_start(self.paraphrase_widget, False, False, 0)
         container.get_style_context().add_class("settings-main-container")
         self.add(container)
@@ -70,7 +70,7 @@ class GPGRestoreWindow(Gtk.Window):
                 BackupJSON.import_file(output_file)
                 self.destroy()
             else:
-                self.__send_notification(_("There was an error during the import of the encrypted file."))
+                self.__send_notification(_("Could not import the encrypted file."))
 
         except AttributeError:
             Logger.error("[GPG] Invalid JSON file.")
