@@ -136,7 +136,7 @@ class PasswordWindow(Gtk.Window):
 
     def _build_widgets(self):
         header_bar = Gtk.HeaderBar()
-        header_bar.set_title(_("Backup Password"))
+        header_bar.set_title(_("Your backup password"))
         header_bar.set_show_close_button(True)
         self.set_titlebar(header_bar)
 
@@ -149,14 +149,14 @@ class PasswordWindow(Gtk.Window):
 
         container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         if Settings.get_default().backup_password:
-            self.old_password = SettingsBoxWithEntry(_("Old Password"), True)
+            self.old_password = SettingsBoxWithEntry(_("Old password"), True)
             self.old_password.entry.connect("changed", self._validate)
             container.pack_start(self.old_password, False, False, 6)
 
         self.password = SettingsBoxWithEntry(_("Password"), True)
         self.password.entry.connect("changed", self._validate)
 
-        self.repeat_password = SettingsBoxWithEntry(_("Repeat Password"), True)
+        self.repeat_password = SettingsBoxWithEntry(_("Repeat password"), True)
         self.repeat_password.entry.connect("changed", self._validate)
 
         container.pack_start(self.password, False, False, 6)
@@ -268,7 +268,7 @@ class SettingsWindow(Gtk.Window):
         container = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 
         notification_lbl = Gtk.Label()
-        notification_lbl.set_text(_("The existing accounts will be erased in 5 seconds"))
+        notification_lbl.set_text(_("Existing accounts will be erased in 5 seconds"))
         container.pack_start(notification_lbl, False, False, 3)
 
         undo_btn = Gtk.Button()
