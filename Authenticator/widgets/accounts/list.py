@@ -155,7 +155,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         counter_fraction = int(counter) / accounts_manager.counter_max
         self.otp_progress_bar.set_fraction(counter_fraction)
         self.otp_progress_bar.set_tooltip_text(
-            _("The One-Time Passwords expires in {} seconds").format(counter))
+            _("The one-time password expire in {} seconds").format(counter))
 
 
 class ProviderWidget(Gtk.Box):
