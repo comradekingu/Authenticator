@@ -226,7 +226,7 @@ class SettingsWindow(Gtk.Window):
         self.stack.get_style_context().add_class("settings-main-container")
 
         appearance_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        dark_theme = SwitchSettingsBox(_("Dark theme"), _("Use a dark theme, if possible"), "night-mode")
+        dark_theme = SwitchSettingsBox(_("Dark"), _("Use a dark theme, if possible"), "night-mode")
         dark_theme.connect("changed", self.__on_dark_theme_changed)
         appearance_container.pack_start(dark_theme, False, False, 0)
         self.stack.add_titled(appearance_container, "appearance", _("Appearance"))
@@ -238,7 +238,7 @@ class SettingsWindow(Gtk.Window):
         self.stack.add_titled(behaviour_container, "behaviour", _("Behaviour"))
 
         backup_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        gpg_location = ClickableSettingsBox(_("GPG keys location"),
+        gpg_location = ClickableSettingsBox(_("Folder for GPG keys"),
                                             Settings.get_default().gpg_location)
         gpg_location.connect("button-press-event", self.__on_gpg_location_clicked)
 
